@@ -119,7 +119,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   width: 327.w,
                   decoration: BoxDecoration(color: Colors.white, boxShadow: [
                     BoxShadow(
-                      offset: Offset(0, 8),
+                      offset: const Offset(0, 8),
                       color: AppColor.boxshadowcolor,
                       blurRadius: 40.0,
                     ),
@@ -127,20 +127,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: Column(
                     children: [
                        Padding(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                             left: 20, right: 20, top: 50, bottom: 10),
                         child: NewTextFormfield(
                           controller: nameControll,
                           yourhinttext: 'Enter Your Name',
                           yourlabletext: 'Name',
-                          iconwidget: Icon(
+                          iconwidget: const Icon(
                             Icons.keyboard_arrow_down,
                             size: 30,
                           ),
                         ),
                       ),
                        Padding(
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 10),
                         child: NewTextFormfield(
                           controller: emailController,
@@ -149,26 +149,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                        Padding(
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 10),
                         child: NewTextFormfield(
                           controller: password,
                           yourhinttext: 'Enter Your Password',
                           yourlabletext: 'Password',
-                          iconwidget: Icon(
+                          iconwidget: const Icon(
                             Icons.remove_red_eye,
                             size: 25,
                           ),
                         ),
                       ),
                        Padding(
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 10),
                         child: NewTextFormfield(
                           controller: cpassword,
                           yourhinttext: 'Confirm Your Password',
                           yourlabletext: 'Confirm',
-                          iconwidget: Icon(
+                          iconwidget: const Icon(
                             Icons.remove_red_eye,
                             size: 25,
                           ),
