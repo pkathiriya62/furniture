@@ -23,7 +23,6 @@ class _LogInScreenState extends State<LogInScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController password = TextEditingController();
   Future<void> login(String email, String password) async {
-   
     try {
       http.Response response = await http.post(
         Uri.parse('https://typescript-al0m.onrender.com/api/user/login'),
@@ -55,6 +54,7 @@ class _LogInScreenState extends State<LogInScreen> {
       log(e.toString());
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,7 +129,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   ]),
                   child: Column(
                     children: [
-                       Padding(
+                      Padding(
                         padding: const EdgeInsets.only(
                             left: 20, right: 20, top: 50, bottom: 20),
                         child: NewTextFormfield(
@@ -142,7 +142,7 @@ class _LogInScreenState extends State<LogInScreen> {
                           ),
                         ),
                       ),
-                       Padding(
+                      Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 20,
                         ),
@@ -183,13 +183,13 @@ class _LogInScreenState extends State<LogInScreen> {
                         height: 30.h,
                       ),
                       InkWell(
-                        onTap: (){
-                           Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => const SignUpScreen(),
-                ),
-              );
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const SignUpScreen(),
+                            ),
+                          );
                         },
                         child: Text(
                           'Sign up',

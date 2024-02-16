@@ -7,9 +7,8 @@ import 'package:furniture/common/Appimage.dart';
 import 'package:furniture/common/newtextformfield.dart';
 import 'package:furniture/view/loginscreen.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart'as http;
+import 'package:http/http.dart' as http;
 import '../Common/button.dart';
-
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -24,9 +23,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController cpassword = TextEditingController();
   TextEditingController nameControll = TextEditingController();
   Future<void> login(String email, String password, String name) async {
-   log(email);
-   log(password);
-   log(name);
+    log(email);
+    log(password);
+    log(name);
     try {
       http.Response response = await http.post(
         Uri.parse('https://typescript-al0m.onrender.com/api/user/signUp'),
@@ -51,7 +50,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
             (route) => false);
         // log(data['messge']);
         log("User sing in");
-        
       } else {
         log('user already created');
       }
@@ -59,6 +57,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       log(e.toString());
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,7 +99,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               Column(
                 children: [
-                 SizedBox(height: 20.h,),
+                  SizedBox(
+                    height: 20.h,
+                  ),
                   Text(
                     'WELCOME',
                     style: TextStyle(
@@ -126,7 +127,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ]),
                   child: Column(
                     children: [
-                       Padding(
+                      Padding(
                         padding: const EdgeInsets.only(
                             left: 20, right: 20, top: 50, bottom: 10),
                         child: NewTextFormfield(
@@ -139,7 +140,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                       ),
-                       Padding(
+                      Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 10),
                         child: NewTextFormfield(
@@ -148,7 +149,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           yourlabletext: 'Email',
                         ),
                       ),
-                       Padding(
+                      Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 10),
                         child: NewTextFormfield(
@@ -161,7 +162,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                       ),
-                       Padding(
+                      Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 10),
                         child: NewTextFormfield(
@@ -181,7 +182,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: GlobleButton(
                           onTap: () {
-                                  login(emailController.text, password.text, nameControll.text);
+                            login(emailController.text, password.text,
+                                nameControll.text);
                           },
                           button: 'Sign in',
                         ),
@@ -201,12 +203,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               fontFamily: GoogleFonts.inter.toString(),
                             ),
                           ),
-                          Text(
-                            ' Sign up',
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: GoogleFonts.inter.toString(),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => const LogInScreen(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              ' Sign up',
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: GoogleFonts.inter.toString(),
+                              ),
                             ),
                           ),
                         ],
