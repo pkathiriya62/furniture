@@ -1,11 +1,16 @@
 // import 'package:fernitur/Common/common_color.dart';
+import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture/common/Appcolor.dart';
 import 'package:furniture/common/Appimage.dart';
 import 'package:furniture/common/newtextformfield.dart';
+import 'package:furniture/view/signupscreen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../Common/button.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -15,6 +20,41 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController password = TextEditingController();
+  Future<void> login(String email, String password) async {
+   
+    try {
+      http.Response response = await http.post(
+        Uri.parse('https://typescript-al0m.onrender.com/api/user/login'),
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode({
+          'email': email,
+          'password': password,
+        }),
+      );
+
+      log(response.statusCode.toString());
+      var data = jsonDecode(response.body);
+      log(data['message']);
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        // Navigator.pushAndRemoveUntil(
+        //     context,
+        //     MaterialPageRoute(builder: (_) => const HomeScreen()),
+        //     (route) => false);
+        log(data['token']);
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setString('token', data['token']);
+        log('login!!');
+      } else {
+        log('Fail!');
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,10 +129,11 @@ class _LogInScreenState extends State<LogInScreen> {
                   ]),
                   child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
+                       Padding(
+                        padding: EdgeInsets.only(
                             left: 20, right: 20, top: 50, bottom: 20),
                         child: NewTextFormfield(
+                          controller: emailController,
                           yourhinttext: 'Enter Your Email',
                           yourlabletext: 'Email',
                           iconwidget: Icon(
@@ -101,11 +142,12 @@ class _LogInScreenState extends State<LogInScreen> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
+                       Padding(
+                        padding: EdgeInsets.symmetric(
                           horizontal: 20,
                         ),
                         child: NewTextFormfield(
+                          controller: password,
                           yourhinttext: 'Enter Your Password',
                           yourlabletext: 'Password',
                           iconwidget: Icon(
@@ -131,19 +173,31 @@ class _LogInScreenState extends State<LogInScreen> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: GlobleButton(
-                          onTap: () {},
+                          onTap: () {
+                            login(emailController.text, password.text);
+                          },
                           button: 'Log in',
                         ),
                       ),
                       SizedBox(
                         height: 30.h,
                       ),
-                      Text(
-                        'Sign up',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: GoogleFonts.inter.toString(),
+                      InkWell(
+                        onTap: (){
+                           Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const SignUpScreen(),
+                ),
+              );
+                        },
+                        child: Text(
+                          'Sign up',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: GoogleFonts.inter.toString(),
+                          ),
                         ),
                       ),
                     ],

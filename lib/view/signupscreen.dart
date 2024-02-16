@@ -1,10 +1,15 @@
+import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture/common/Appcolor.dart';
 import 'package:furniture/common/Appimage.dart';
 import 'package:furniture/common/newtextformfield.dart';
+import 'package:furniture/view/loginscreen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart'as http;
 import '../Common/button.dart';
+
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -14,6 +19,46 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController cpassword = TextEditingController();
+  TextEditingController nameControll = TextEditingController();
+  Future<void> login(String email, String password, String name) async {
+   log(email);
+   log(password);
+   log(name);
+    try {
+      http.Response response = await http.post(
+        Uri.parse('https://typescript-al0m.onrender.com/api/user/signUp'),
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode({
+          'name': name,
+          'email': email,
+          'password': password,
+          'confirmPassword': password,
+        }),
+      );
+
+      log(response.statusCode.toString());
+
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        var data = jsonDecode(response.body);
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (_) => const LogInScreen()),
+            (route) => false);
+        // log(data['messge']);
+        log("User sing in");
+        
+      } else {
+        log('user already created');
+      }
+    } catch (e) {
+      log(e.toString());
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,10 +126,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ]),
                   child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
+                       Padding(
+                        padding: EdgeInsets.only(
                             left: 20, right: 20, top: 50, bottom: 10),
                         child: NewTextFormfield(
+                          controller: nameControll,
                           yourhinttext: 'Enter Your Name',
                           yourlabletext: 'Name',
                           iconwidget: Icon(
@@ -93,18 +139,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
+                       Padding(
+                        padding: EdgeInsets.symmetric(
                             horizontal: 20, vertical: 10),
                         child: NewTextFormfield(
+                          controller: emailController,
                           yourhinttext: 'Enter Your Email',
                           yourlabletext: 'Email',
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
+                       Padding(
+                        padding: EdgeInsets.symmetric(
                             horizontal: 20, vertical: 10),
                         child: NewTextFormfield(
+                          controller: password,
                           yourhinttext: 'Enter Your Password',
                           yourlabletext: 'Password',
                           iconwidget: Icon(
@@ -113,10 +161,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
+                       Padding(
+                        padding: EdgeInsets.symmetric(
                             horizontal: 20, vertical: 10),
                         child: NewTextFormfield(
+                          controller: cpassword,
                           yourhinttext: 'Confirm Your Password',
                           yourlabletext: 'Confirm',
                           iconwidget: Icon(
@@ -131,8 +180,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: GlobleButton(
-                          onTap: () {},
-                          button: 'Sign up',
+                          onTap: () {
+                                  login(emailController.text, password.text, nameControll.text);
+                          },
+                          button: 'Sign in',
                         ),
                       ),
                       SizedBox(
