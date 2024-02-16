@@ -44,7 +44,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       log(response.statusCode.toString());
 
       if (response.statusCode == 200 || response.statusCode == 201) {
-        var data = jsonDecode(response.body);
+        // var data = jsonDecode(response.body);
         Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: (_) => const LogInScreen()),
