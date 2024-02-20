@@ -17,7 +17,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: GridView.builder(
@@ -29,15 +28,23 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisSpacing: 20,
           ),
           itemBuilder: (BuildContext context, index) {
-            return Stack(
-              children:[ Container(
+            return Stack(children: [
+              Container(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(AppImage.gridviewimage[index],scale: 2,height: 220.h,),
-                    Text(AppText.homepagecomontxt[index],),
-                    Text(AppText.homepageprice[index],),
+                    Image.asset(
+                      AppImage.gridviewimage[index],
+                      scale: 2,
+                      height: 220.h,
+                    ),
+                    Text(
+                      AppText.homepagecomontxt[index],
+                    ),
+                    Text(
+                      AppText.homepageprice[index],
+                    ),
                   ],
                 ),
                 // decoration: BoxDecoration(
@@ -45,28 +52,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 //   borderRadius: BorderRadius.circular(10),
                 // ),
               ),
-                
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 17),
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 80),
-                            child: Icon(Icons.shopping_bag, size: 30,),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 17),
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 80),
+                          child: Icon(
+                            Icons.shopping_bag,
+                            size: 30,
                           ),
                         ),
-                      ],
-                    ),
-                  ],
-                ),
-                
-            ]
-
-            );
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ]);
           },
         ),
       ),
