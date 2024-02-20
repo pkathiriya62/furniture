@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:furniture/view/loginscreen.dart';
+// import 'package:furniture/bottomnavbar.dart';
+// import 'package:furniture/tabbarscreen.dart';
+import 'package:furniture/view/homescreen.dart';
+// import 'package:furniture/view/loginscreen.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -21,7 +24,7 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            home: const LogInScreen(),
+            home: const HomeScreen(),
           );
         });
   }
