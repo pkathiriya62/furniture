@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture/common/Appcolor.dart';
 
-
-
-
 class TabBarScrnFive extends StatefulWidget {
   const TabBarScrnFive({super.key});
 
@@ -21,12 +18,12 @@ class _TabBarScrnFiveState extends State<TabBarScrnFive>
     super.initState();
     _tabController = TabController(length: 5, vsync: this);
   }
+
   void _onItemTapped(int index) {
     setState(() {
       selectindex = index;
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +32,8 @@ class _TabBarScrnFiveState extends State<TabBarScrnFive>
         padding: const EdgeInsets.all(0),
         child: Column(
           children: [
-
             // AppBarScreen(),
-           // CommonAppBar(headtext: 'Profile'),
+            // CommonAppBar(headtext: 'Profile'),
 
             Padding(
               padding: const EdgeInsets.only(top: 10),
@@ -49,7 +45,6 @@ class _TabBarScrnFiveState extends State<TabBarScrnFive>
                   unselectedLabelColor: Colors.grey,
                   labelStyle: TextStyle(fontSize: 11),
                   tabs: [
-
                     Column(
                       children: [
                         Container(
@@ -94,7 +89,6 @@ class _TabBarScrnFiveState extends State<TabBarScrnFive>
                           ),
                           child: Image.asset(
                             'assets/image/chair 4.png',
-
                             scale: 3,
                             color: selectindex == 1
                                 ? Colors.white
@@ -113,7 +107,6 @@ class _TabBarScrnFiveState extends State<TabBarScrnFive>
                         )
                       ],
                     ),
-
                     Column(
                       children: [
                         Container(
@@ -178,7 +171,6 @@ class _TabBarScrnFiveState extends State<TabBarScrnFive>
                         )
                       ],
                     ),
-
                     Column(
                       children: [
                         Container(
@@ -214,22 +206,20 @@ class _TabBarScrnFiveState extends State<TabBarScrnFive>
                   onTap: _onItemTapped,
                   mouseCursor: MouseCursor.uncontrolled,
                 ),
-
-
               ),
             ),
 
             Expanded(
-              child: TabBarView(controller: _tabController, children: [
-
-                // HomeScreen(),
-                Text('data'),
-                Text('data'),
-                Text('data'),
-                Text('data'),
-
-
-              ],),
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  // HomeScreen(),
+                  Text('data'),
+                  Text('data'),
+                  Text('data'),
+                  Text('data'),
+                ],
+              ),
             ),
           ],
         ),

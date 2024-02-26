@@ -1,10 +1,14 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture/common/Appimage.dart';
 import 'package:furniture/common/Apptext.dart';
-
-// import '../Common/common_image.dart';
-// import '../Common/comon_text.dart';
+import 'package:furniture/model/showproductmodel.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,7 +18,29 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Future<List<Productmodel>>?productdetail;
+  String? token;
   @override
+  
+  Future<List<Productmodel>> getProduct() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    token = prefs.getString('token');
+
+    log(token.toString());
+    final Response = await http.get(
+      Uri.parse(
+          'https://typescript-al0m.onrender.com/api/user/product/showall-product'),
+      headers: {'authorization': 'bearer $token'},
+    );
+
+    if (Response.statusCode == 200) {
+      List<dynamic> data = json.decode(Response.body);
+      return data.map((json) => Productmodel.fromJson(json)).toList();
+    } else {
+      throw Exception('Failed to load post');
+    }
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(

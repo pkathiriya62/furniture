@@ -1,7 +1,4 @@
-
-
-class AppText{
-
+class AppText {
   static List<String> homepagecomontxt = [
     "Black Simple Lamp",
     "Minimal Stand",
@@ -9,12 +6,10 @@ class AppText{
     "Simple Desk",
   ];
 
-
   static List<String> homepageprice = [
-    " 12.00",
-    " 12.00",
-    " 12.00",
-    " 12.00",
+    "\$ 12.00",
+    "\$ 12.00",
+    "\$ 12.00",
+    "\$ 12.00",
   ];
-
 }

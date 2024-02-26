@@ -1,9 +1,6 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture/common/Appcolor.dart';
-
-
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -42,7 +39,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
             icon: Image.asset(
               'assets/image/Vector.png',
               scale: 3,
-              color: _selectedIndex == 0 ? AppColor.primarycolor : Colors.black26,
+              color:
+                  _selectedIndex == 0 ? AppColor.primarycolor : Colors.black26,
             ),
             label: 'Home',
           ),
@@ -50,7 +48,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
             icon: Image.asset(
               'assets/image/marker 1.png',
               scale: 3,
-              color: _selectedIndex == 1 ? AppColor.primarycolor : Colors.black26,
+              color:
+                  _selectedIndex == 1 ? AppColor.primarycolor : Colors.black26,
             ),
             label: 'Shop',
           ),
@@ -58,7 +57,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
             icon: Image.asset(
               'assets/image/1vecter.png',
               scale: 3,
-              color: _selectedIndex == 2 ? AppColor.primarycolor : Colors.black26,
+              color:
+                  _selectedIndex == 2 ? AppColor.primarycolor : Colors.black26,
             ),
             label: 'Store',
           ),
@@ -66,7 +66,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
             icon: Image.asset(
               'assets/image/acc.png',
               scale: 3,
-              color: _selectedIndex == 3 ? AppColor.primarycolor : Colors.black26,
+              color:
+                  _selectedIndex == 3 ? AppColor.primarycolor : Colors.black26,
             ),
             label: 'Cart',
           ),
