@@ -4,6 +4,7 @@ import 'package:furniture/common/Appcolor.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
+  
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();
