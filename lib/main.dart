@@ -2,10 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:furniture/view/cartscreen.dart';
+// import 'package:furniture/view/cartscreen.dart';
 // import 'package:furniture/view/favouritescreen.dart';
 // import 'package:furniture/view/homescreen.dart';
 import 'package:furniture/view/loginscreen.dart';
+import 'package:furniture/view/profilescreen.dart';
 // import 'package:furniture/view/productscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 void main() {
@@ -44,7 +45,7 @@ class _MyAppState extends State<MyApp> {
               useMaterial3: true,
             ),
             // ignore: unnecessary_null_comparison
-            home: token != null ? const CartScreen(yourhinttext: 'Enter your promo code', yourlabletext: 'Enter your promo code',):const LogInScreen(),
+            home: token != null ? const Profilescreen():const LogInScreen(),
           );
         });
   }

@@ -156,8 +156,6 @@ class _CartScreenState extends State<CartScreen> {
                       decoration: BoxDecoration(
                         color: AppColor.primarycolor,
                         borderRadius: BorderRadius.circular(8),
-                       
-                        
                       ),
                       child: const Icon(
                         Icons.arrow_forward_ios,
