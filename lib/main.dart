@@ -1,14 +1,14 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:furniture/view/editscreen.dart';
 // import 'package:furniture/view/cartscreen.dart';
-// import 'package:furniture/view/favouritescreen.dart';
-// import 'package:furniture/view/homescreen.dart';
+// import 'package:furniture/view/checkoutscreen.dart';
 import 'package:furniture/view/loginscreen.dart';
-import 'package:furniture/view/profilescreen.dart';
-// import 'package:furniture/view/productscreen.dart';
+// import 'package:furniture/view/profilescreen.dart';
+// import 'package:furniture/view/profilescreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -25,12 +25,14 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
   }
-  String token="";
-  Future<void>gettoken()async{
+
+  String token = "";
+  Future<void> gettoken() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    token=prefs.getString("token").toString();
+    token = prefs.getString("token").toString();
     print("token ${token}");
   }
+
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: const Size(360, 800),
@@ -45,7 +47,9 @@ class _MyAppState extends State<MyApp> {
               useMaterial3: true,
             ),
             // ignore: unnecessary_null_comparison
-            home: token != null ? const Profilescreen():const LogInScreen(),
+            home: token != null
+                ? const LogInScreen()
+                : const LogInScreen(),
           );
         });
   }

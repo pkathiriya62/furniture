@@ -2,7 +2,7 @@
 
 class AppImage{
   static String Logo = "Images/logo_img.png";
-  static String Loginscreenimg = "Images/login_and_signup.png";
+  static String Loginscreenimg = "assets/image/Group.png";
 
 
   static List<String> gridviewimage = [
