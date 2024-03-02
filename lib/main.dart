@@ -1,11 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:furniture/view/editscreen.dart';
-// import 'package:furniture/view/cartscreen.dart';
+import 'package:furniture/bottomnavbar.dart';
 // import 'package:furniture/view/checkoutscreen.dart';
 import 'package:furniture/view/loginscreen.dart';
-// import 'package:furniture/view/profilescreen.dart';
 // import 'package:furniture/view/profilescreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -48,7 +46,7 @@ class _MyAppState extends State<MyApp> {
             ),
             // ignore: unnecessary_null_comparison
             home: token != null
-                ? const LogInScreen()
+                ? const BottomNavigation()
                 : const LogInScreen(),
           );
         });

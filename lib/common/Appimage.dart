@@ -7,10 +7,10 @@ class AppImage{
 
   static List<String> gridviewimage = [
 
-    "Images/jonny-caspari-wsvCC6UyKjs-unsplash 1.png",
-    "Images/jonny-caspari-wsvCC6UyKjs-unsplash 1 (1).png",
-    "Images/jonny-caspari-wsvCC6UyKjs-unsplash 1 (2).png",
-    "Images/jonny-caspari-wsvCC6UyKjs-unsplash 1 (3).png",
+    "assets/image/jonny-caspari-wsvCC6UyKjs-unsplash 1.png",
+    "assets/image/jonny2.png",
+    "assets/image/jonny3.png",
+    "assets/image/jonny4.png",
 
   ];
 

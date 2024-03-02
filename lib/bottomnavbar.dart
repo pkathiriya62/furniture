@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture/common/Appcolor.dart';
+import 'package:furniture/tabbarscreen.dart';
+import 'package:furniture/view/favouritescreen.dart';
+// import 'package:furniture/view/homescreen.dart';
+import 'package:furniture/view/profilescreen.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -13,11 +17,10 @@ class BottomNavigation extends StatefulWidget {
 class _BottomNavigationState extends State<BottomNavigation> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
-    // TabBarScrnFive(),
+    TabBarScrnFive(),
+    FavoriteScreen(),
     Text('data'),
-    Text('data'),
-    Text('data'),
-    Text('data'),
+    ProfileScreen(),
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -52,7 +55,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               color:
                   _selectedIndex == 1 ? AppColor.primarycolor : Colors.black26,
             ),
-            label: 'Shop',
+            label: 'Favorite',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -61,7 +64,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               color:
                   _selectedIndex == 2 ? AppColor.primarycolor : Colors.black26,
             ),
-            label: 'Store',
+            label: 'notification',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -70,7 +73,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               color:
                   _selectedIndex == 3 ? AppColor.primarycolor : Colors.black26,
             ),
-            label: 'Cart',
+            label: 'Profile',
           ),
         ],
         showUnselectedLabels: true,

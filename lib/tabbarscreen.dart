@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniture/common/Appcolor.dart';
+import 'package:furniture/view/appbar.dart';
+import 'package:furniture/view/homescreen.dart';
 
 class TabBarScrnFive extends StatefulWidget {
   const TabBarScrnFive({super.key});
@@ -32,7 +34,7 @@ class _TabBarScrnFiveState extends State<TabBarScrnFive>
         padding: const EdgeInsets.all(0),
         child: Column(
           children: [
-            // AppBarScreen(),
+            AppBarScreen(),
             // CommonAppBar(headtext: 'Profile'),
 
             Padding(
@@ -213,7 +215,7 @@ class _TabBarScrnFiveState extends State<TabBarScrnFive>
               child: TabBarView(
                 controller: _tabController,
                 children: [
-                  // HomeScreen(),
+                  HomeScreen(),
                   Text('data'),
                   Text('data'),
                   Text('data'),
