@@ -2,10 +2,12 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:furniture/bottomnavbar.dart';
 import 'package:furniture/common/Appcolor.dart';
 import 'package:furniture/common/Appimage.dart';
 import 'package:furniture/common/newtextformfield.dart';
-import 'package:furniture/view/editscreen.dart';
+// import 'package:furniture/view/editscreen.dart';
+// import 'package:furniture/view/homescreen.dart';
 import 'package:furniture/view/signupscreen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../Common/button.dart';
@@ -41,7 +43,7 @@ class _LogInScreenState extends State<LogInScreen> {
       if (response.statusCode == 200 || response.statusCode == 201) {
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (_) => const Editscreen()),
+            MaterialPageRoute(builder: (_) => const BottomNavigation()),
             (route) => false);
         log(data['token']);
         final SharedPreferences prefs = await SharedPreferences.getInstance();

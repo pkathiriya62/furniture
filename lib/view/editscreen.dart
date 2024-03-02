@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:furniture/bottomnavbar.dart';
 import 'package:furniture/common/newtextformfield.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
@@ -52,9 +53,17 @@ class _EditscreenState extends State<Editscreen> {
         children: [
           SizedBox(height: 40,),
           NewTextFormfield(yourhinttext: 'update', yourlabletext: 'update', controller:nameControll ),
-          ElevatedButton(onPressed: (){
-            login(nameControll.text);
-          }, child: Text('update'))
+          ElevatedButton(
+            onPressed: () {
+                login(nameControll.text);
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BottomNavigation(),
+                    ),
+                        (route) => false);
+              },
+           child: Text('update'))
         ],
       ),
     );
