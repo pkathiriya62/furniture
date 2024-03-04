@@ -1,7 +1,5 @@
 import 'dart:convert';
 import 'dart:developer';
-
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture/model/getprofilemodel.dart';
 import 'package:furniture/view/editscreen.dart';
@@ -11,10 +9,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// import '../Common/button.dart';
-// import '../Model/get_profile.dart';
-// import '../update_profile.dart';
-
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -23,7 +17,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class AppText {
-
   static List<String> profiletext = [
     "My orders",
     "Shipping Addresses",
@@ -42,7 +35,6 @@ class AppText {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-
   Future<GetProfile>? futureProfile;
   String? Token;
   String? name;
@@ -55,6 +47,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   _getRequests() async {
     setState(() {});
   }
+
   Future DeleteProduct() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     //prefs.getString('token', data['token']);
@@ -71,9 +64,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
       log(response.body);
       log("delete successfully");
       prefs.remove("token");
-      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_)=>LogInScreen()), (route) => false);
-
-
+      Navigator.pushAndRemoveUntil(context,
+          MaterialPageRoute(builder: (_) => LogInScreen()), (route) => false);
     } else {
       throw Exception('failed to load employees');
     }
@@ -99,48 +91,47 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
-             onTap: () => showDialog<String>(
-    context: context,
-    builder: (BuildContext context) => AlertDialog(
-      title: const Text('Delete profile'),
-      content: const Text('Do you want to delete this profile?'),
-      actions: <Widget>[
-        TextButton(
-          onPressed: () => Navigator.pop(context, 'Cancel'),
-          child: const Text('Cancel'),
-        ),
-        TextButton(
-          onPressed: (){
-            DeleteProduct();
-          },
-          child: const Text('OK'),
-        ),
-      ],
-    ),
-  ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(Icons.delete),
-              ),
+          onTap: () => showDialog<String>(
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+              title: const Text('Delete profile'),
+              content: const Text('Do you want to delete this profile?'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () => Navigator.pop(context, 'Cancel'),
+                  child: const Text('Cancel'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    DeleteProduct();
+                  },
+                  child: const Text('OK'),
+                ),
+              ],
+            ),
           ),
-          
-        
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(Icons.delete),
+          ),
+        ),
         actions: [
           InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Editscreen()),
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Editscreen()),
               );
             },
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(Icons.edit),
-              ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.edit),
+            ),
           ),
         ],
         title: Center(child: Text('Profile')),
@@ -149,99 +140,100 @@ class _ProfileScreenState extends State<ProfileScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-           
             FutureBuilder<GetProfile>(
-              future: futureProfile,
-              builder: (context, snapshot) {
-                return Row(
-                  children: [
-                    Image.asset(
-                      'assets/image/avatar.png',
-                      scale: 3,
-                    ),
-                    SizedBox(
-                      width: 30.w,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                snapshot.data?.name.toString() ?? "",
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
-                          ),
-                        ),
-                        Text(
-                          snapshot.data?.email.toString() ?? "",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w300,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                );
-              }
-            ),
-
-            SizedBox(height: 20.h,),
-
-            ListView.builder(shrinkWrap: true,
-                itemCount: 5,
-                itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 9),
-                child: Container(
-
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(AppText.profiletext[index], style: TextStyle(
+                future: futureProfile,
+                builder: (context, snapshot) {
+                  return Row(
+                    children: [
+                      Image.asset(
+                        'assets/image/avatar.png',
+                        scale: 3,
+                      ),
+                      SizedBox(
+                        width: 30.w,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            snapshot.data?.name.toString() ?? "",
+                            style: TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.w500,
                               color: Colors.black,
-                              fontFamily: GoogleFonts.poppins.toString(),
-                            ),),
-                            Text(AppText.profilesubtext[index],style: TextStyle(
+                            ),
+                          ),
+                          Text(
+                            snapshot.data?.email.toString() ?? "",
+                            style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w300,
                               color: Colors.black,
-                              fontFamily: GoogleFonts.poppins.toString(),
-                            ),),
-                          ],
-                        ),
-                        Icon(Icons.arrow_forward_ios),
-                      ],
-                    ),
-                  ),
-
-                  height: 80.h,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black12,
-                        blurRadius: 20.0,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
-                  ),
-
-                ),
-              );
-            }
+                  );
+                }),
+            SizedBox(
+              height: 20.h,
             ),
+            ListView.builder(
+                shrinkWrap: true,
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 9),
+                    child: Container(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  AppText.profiletext[index],
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black,
+                                    fontFamily: GoogleFonts.poppins.toString(),
+                                  ),
+                                ),
+                                Text(
+                                  AppText.profilesubtext[index],
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w300,
+                                    color: Colors.black,
+                                    fontFamily: GoogleFonts.poppins.toString(),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Icon(Icons.arrow_forward_ios),
+                          ],
+                        ),
+                      ),
+                      height: 80.h,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 20.0,
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }),
           ],
         ),
       ),
