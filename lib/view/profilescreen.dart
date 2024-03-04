@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:furniture/model/getprofilemodel.dart';
 import 'package:furniture/view/editscreen.dart';
 import 'package:furniture/view/loginscreen.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -122,12 +123,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         actions: [
           InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Editscreen()),
-              );
-            },
+            onTap: () => Get.to(Editscreen()),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Icon(Icons.edit),

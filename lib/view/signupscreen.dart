@@ -6,6 +6,7 @@ import 'package:furniture/common/Appcolor.dart';
 import 'package:furniture/common/Appimage.dart';
 import 'package:furniture/common/newtextformfield.dart';
 import 'package:furniture/view/loginscreen.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import '../Common/button.dart';
@@ -204,14 +205,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           ),
                           InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => const LogInScreen(),
-                                ),
-                              );
-                            },
+                            onTap: () => Get.to(LogInScreen()),
                             child: Text(
                               ' Sign up',
                               style: TextStyle(

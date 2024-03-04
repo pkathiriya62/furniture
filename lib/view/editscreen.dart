@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:furniture/bottomnavbar.dart';
 import 'package:furniture/common/newtextformfield.dart';
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -57,15 +58,7 @@ class _EditscreenState extends State<Editscreen> {
               yourlabletext: 'update',
               controller: nameControll),
           ElevatedButton(
-              onPressed: () {
-                login(nameControll.text);
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const BottomNavigation(),
-                    ),
-                    (route) => false);
-              },
+              onPressed: () => Get.to(BottomNavigation()),
               child: Text('update'))
         ],
       ),

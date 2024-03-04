@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture/bottomnavbar.dart';
+import 'package:get/get.dart';
 // import 'package:furniture/view/homescreen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -38,14 +39,7 @@ class _ProductScreenState extends State<ProductScreen> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10),
                   child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const BottomNavigation(),
-                          ),
-                        );
-                      },
+                      onTap: ()=> Get.to(BottomNavigation()),
                       child: Icon(Icons.arrow_back_ios)),
                 ),
                 height: 40.h,

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:furniture/bottomnavbar.dart';
 import 'package:furniture/common/Appcolor.dart';
-import 'package:furniture/view/cartscreen.dart';
+// import 'package:furniture/view/cartscreen.dart';
 import 'package:furniture/view/congrates.dart';
+import 'package:get/get.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 import '../Common/button.dart';
@@ -22,17 +24,7 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
         title: Text('Check out'),
         titleSpacing: 100,
         leading: InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => const CartScreen(
-                    yourhinttext: '',
-                    yourlabletext: '',
-                  ),
-                ),
-              );
-            },
+            onTap: () => Get.to(BottomNavigation()),
             child: Icon(Icons.arrow_back_ios)),
       ),
       body: Padding(

@@ -4,6 +4,7 @@ import 'package:furniture/bottomnavbar.dart';
 import 'package:furniture/common/Appcolor.dart';
 import 'package:furniture/common/Appimage.dart';
 import 'package:furniture/view/checkoutscreen.dart';
+import 'package:get/get.dart';
 // import 'package:furniture/view/productscreen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -31,14 +32,8 @@ class _CartScreenState extends State<CartScreen> {
         title: const Text('My cart'),
         titleSpacing: 100,
         leading: InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => const BottomNavigation(),
-                ),
-              );
-            },
+            onTap: () =>Get.to(BottomNavigation()),
+            
             child: Icon(Icons.arrow_back_ios)),
       ),
       body: Column(
@@ -223,14 +218,7 @@ class _CartScreenState extends State<CartScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: GlobleButton(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const ChackOutScreen(),
-                  ),
-                );
-              },
+              onTap: () =>Get.to(ChackOutScreen()),
               button: 'Check out',
             ),
           ),

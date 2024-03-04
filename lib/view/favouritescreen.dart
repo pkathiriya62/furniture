@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture/common/Appimage.dart';
 import 'package:furniture/view/cartscreen.dart';
+import 'package:get/get.dart';
 
 import '../Common/button.dart';
 
@@ -116,17 +117,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: GlobleButton(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const CartScreen(
-                      yourhinttext: '',
-                      yourlabletext: '',
-                    ),
-                  ),
-                );
-              },
+              onTap: () => Get.to(CartScreen(yourhinttext: '',yourlabletext: '',)),
               button: 'Add all to my cart',
             ),
           ),

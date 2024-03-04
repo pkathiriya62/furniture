@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture/bottomnavbar.dart';
 import 'package:furniture/common/Appcolor.dart';
 import 'package:furniture/common/button.dart';
-// import 'package:furniture/view/homescreen.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Congratesscreen extends StatefulWidget {
@@ -62,14 +62,7 @@ class _CongratesscreenState extends State<Congratesscreen> {
             ),
             SizedBox(height: 20.h),
             GlobleButton(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const BottomNavigation(),
-                  ),
-                );
-              },
+              onTap: () => Get.to(BottomNavigation()),
               button: 'Back to home',
             ),
           ],

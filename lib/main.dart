@@ -6,6 +6,7 @@ import 'package:furniture/bottomnavbar.dart';
 // import 'package:furniture/view/congrates.dart';
 // import 'package:furniture/view/checkoutscreen.dart';
 import 'package:furniture/view/loginscreen.dart';
+import 'package:get/get.dart';
 // import 'package:furniture/view/profilescreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -39,7 +40,7 @@ class _MyAppState extends State<MyApp> {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
-          return MaterialApp(
+          return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             theme: ThemeData(
