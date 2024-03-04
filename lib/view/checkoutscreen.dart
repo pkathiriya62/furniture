@@ -21,14 +21,19 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
       appBar: AppBar(
         title: Text('Check out'),
         titleSpacing: 100,
-        leading: InkWell(onTap: () {
-          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const CartScreen(yourhinttext: '',yourlabletext: '',),
-                            ),
-                          );
-        },child: Icon(Icons.arrow_back_ios)),
+        leading: InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const CartScreen(
+                    yourhinttext: '',
+                    yourlabletext: '',
+                  ),
+                ),
+              );
+            },
+            child: Icon(Icons.arrow_back_ios)),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -341,11 +346,11 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
             GlobleButton(
               onTap: () {
                 Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const Congratesscreen(),
-                            ),
-                          );
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const Congratesscreen(),
+                  ),
+                );
               },
               button: 'Submit order',
             ),

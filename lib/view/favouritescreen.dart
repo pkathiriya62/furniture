@@ -117,13 +117,15 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: GlobleButton(
               onTap: () {
-                 Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const CartScreen(yourhinttext: '',yourlabletext: '',),
-                            ),
-                          );
-                
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const CartScreen(
+                      yourhinttext: '',
+                      yourlabletext: '',
+                    ),
+                  ),
+                );
               },
               button: 'Add all to my cart',
             ),

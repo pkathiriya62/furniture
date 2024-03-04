@@ -1,23 +1,19 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture/common/Appcolor.dart';
 
-
-
 class CsCommonTextFieldWidget extends StatefulWidget {
-  CsCommonTextFieldWidget(
-      {
-        // this.titleText = '',
-        // this.titleTextAlign = TextAlign.center,
-        required this.text,
-        required this.isPassword,
-        this.validator,
-        required this.massage,
-        required this.addController,
-        // required this.hintText,
-        // required this.textController,
-      });
+  CsCommonTextFieldWidget({
+    // this.titleText = '',
+    // this.titleTextAlign = TextAlign.center,
+    required this.text,
+    required this.isPassword,
+    this.validator,
+    required this.massage,
+    required this.addController,
+    // required this.hintText,
+    // required this.textController,
+  });
 
   // final String titleText;
   // final TextAlign titleTextAlign;
@@ -26,8 +22,6 @@ class CsCommonTextFieldWidget extends StatefulWidget {
   final String massage;
   final bool isPassword;
   final validator;
-
-
 
   // final String hintText;
   // final TextEditingController textController;
@@ -43,19 +37,24 @@ class _CsCommonTextFieldWidgetState extends State<CsCommonTextFieldWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.text, style: TextStyle(
-          fontSize: 18, fontWeight: FontWeight.w700,
-        ),),
-        SizedBox(height: 5,),
+        Text(
+          widget.text,
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        SizedBox(
+          height: 5,
+        ),
         TextFormField(
           controller: widget.addController,
-          validator: (validator){
+          validator: (validator) {
             if (validator == null || validator.isEmpty) {
               return widget.massage;
             }
             return null;
           },
-
           obscureText: widget.isPassword,
           decoration: InputDecoration(
             border: OutlineInputBorder(

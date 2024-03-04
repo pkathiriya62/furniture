@@ -4,10 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture/common/Appcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-
-
-
 class GlobleButton extends StatelessWidget {
   final VoidCallback onTap;
   final button;
@@ -15,10 +11,8 @@ class GlobleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       height: 55.h,
-
       child: ElevatedButton(
         onPressed: onTap,
         style: ButtonStyle(
@@ -26,20 +20,22 @@ class GlobleButton extends StatelessWidget {
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(button, style: TextStyle(
+          children: [
+            Text(
+              button,
+              style: TextStyle(
                 fontFamily: GoogleFonts.poppins().toString(),
                 fontSize: 20,
                 color: Colors.white,
-              ),),
-            ],
-        ),),
-
+              ),
+            ),
+          ],
+        ),
+      ),
       decoration: BoxDecoration(
         color: AppColor.primarycolor,
         borderRadius: BorderRadius.circular(10),
       ),
-
     );
   }
 }

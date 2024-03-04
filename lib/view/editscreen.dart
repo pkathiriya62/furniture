@@ -16,54 +16,57 @@ class Editscreen extends StatefulWidget {
 class _EditscreenState extends State<Editscreen> {
   String? token;
   TextEditingController nameControll = TextEditingController();
-  Future<void> login( String name) async {
-    try{
-       final SharedPreferences prefs = await SharedPreferences.getInstance();
-        var data;
-      data=  prefs.getString('token');
-         http.Response response = await http.put(
-         Uri.parse(
-          'https://typescript-al0m.onrender.com/api/user/update-profile'),
-          headers: {
-            'content-type': 'application/json; charset=utf-8',
-            'Authorization': 'Bearer $data',
-          },
-          body: jsonEncode({
-            'name':name,
-          }),
-      
-    );
-    log(response.statusCode.toString());
-    log("body ${response.body}");
-    if(response.statusCode==200){
-      log('profile updated successfully');
-    }else{
-      log('fail');
-    }
-           }
-    catch(e){
+  Future<void> login(String name) async {
+    try {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      var data;
+      data = prefs.getString('token');
+      http.Response response = await http.put(
+        Uri.parse(
+            'https://typescript-al0m.onrender.com/api/user/update-profile'),
+        headers: {
+          'content-type': 'application/json; charset=utf-8',
+          'Authorization': 'Bearer $data',
+        },
+        body: jsonEncode({
+          'name': name,
+        }),
+      );
+      log(response.statusCode.toString());
+      log("body ${response.body}");
+      if (response.statusCode == 200) {
+        log('profile updated successfully');
+      } else {
+        log('fail');
+      }
+    } catch (e) {
       print(e.toString());
     }
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 40,),
-          NewTextFormfield(yourhinttext: 'update', yourlabletext: 'update', controller:nameControll ),
+          SizedBox(
+            height: 40,
+          ),
+          NewTextFormfield(
+              yourhinttext: 'update',
+              yourlabletext: 'update',
+              controller: nameControll),
           ElevatedButton(
-            onPressed: () {
+              onPressed: () {
                 login(nameControll.text);
                 Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const BottomNavigation(),
                     ),
-                        (route) => false);
+                    (route) => false);
               },
-           child: Text('update'))
+              child: Text('update'))
         ],
       ),
     );

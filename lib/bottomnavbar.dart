@@ -8,7 +8,6 @@ import 'package:furniture/view/profilescreen.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
-  
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();

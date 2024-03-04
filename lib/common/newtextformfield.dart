@@ -5,7 +5,12 @@ class NewTextFormfield extends StatefulWidget {
   final String yourlabletext;
   final iconwidget;
   final TextEditingController controller;
-  const NewTextFormfield({super.key, this.iconwidget, required this.yourhinttext, required this.yourlabletext, required this.controller});
+  const NewTextFormfield(
+      {super.key,
+      this.iconwidget,
+      required this.yourhinttext,
+      required this.yourlabletext,
+      required this.controller});
 
   @override
   State<NewTextFormfield> createState() => _NewTextFormfieldState();
@@ -21,11 +26,10 @@ class _NewTextFormfieldState extends State<NewTextFormfield> {
           decoration: InputDecoration(
             suffixIcon: widget.iconwidget,
             border: OutlineInputBorder(
-              borderRadius:
-              BorderRadius.all(Radius.circular(4)),
+              borderRadius: BorderRadius.all(Radius.circular(4)),
             ),
             // icon: Icon(Icons.person),
-            
+
             hintText: widget.yourhinttext,
             labelText: widget.yourlabletext,
           ),

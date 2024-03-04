@@ -51,9 +51,9 @@ class _MyAppState extends State<MyApp> {
             //     ? const Congratesscreen()
             //     : const LogInScreen(),
             // ignore: unnecessary_null_comparison
-            home: token != null
-                ? const BottomNavigation()
-                : const LogInScreen(),
+            home:
+                // ignore: unnecessary_null_comparison
+                token != null ? const BottomNavigation() : const LogInScreen(),
           );
         });
   }

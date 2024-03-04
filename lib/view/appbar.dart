@@ -13,33 +13,48 @@ class _AppBarScreenState extends State<AppBarScreen> {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20, top: 30, bottom: 10),
+        padding:
+            const EdgeInsets.only(left: 20, right: 20, top: 30, bottom: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Icon(Icons.search, size: 30,),
-
+            Icon(
+              Icons.search,
+              size: 30,
+            ),
             Column(
               children: [
-                Text('MAKE HOME', style: TextStyle(
-                  fontSize: 16,
-                ),),
-                Text('BEAUTIFUL', style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                ),),
-
+                Text(
+                  'MAKE HOME',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                Text(
+                  'BEAUTIFUL',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               ],
-
             ),
-            InkWell(onTap: () {
-               Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const CartScreen(yourhinttext: '',yourlabletext: '',),
-                            ),
-                          );
-            },child: Icon(Icons.shopping_cart_outlined, size: 30,)),
+            InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const CartScreen(
+                        yourhinttext: '',
+                        yourlabletext: '',
+                      ),
+                    ),
+                  );
+                },
+                child: Icon(
+                  Icons.shopping_cart_outlined,
+                  size: 30,
+                )),
           ],
         ),
       ),

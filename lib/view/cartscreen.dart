@@ -30,14 +30,16 @@ class _CartScreenState extends State<CartScreen> {
       appBar: AppBar(
         title: const Text('My cart'),
         titleSpacing: 100,
-        leading:  InkWell(onTap: () {
-          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const BottomNavigation(),
-                            ),
-                          );
-        },child: Icon(Icons.arrow_back_ios)),
+        leading: InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const BottomNavigation(),
+                ),
+              );
+            },
+            child: Icon(Icons.arrow_back_ios)),
       ),
       body: Column(
         children: [
@@ -222,12 +224,12 @@ class _CartScreenState extends State<CartScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: GlobleButton(
               onTap: () {
-                 Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const ChackOutScreen(),
-                            ),
-                          );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const ChackOutScreen(),
+                  ),
+                );
               },
               button: 'Check out',
             ),

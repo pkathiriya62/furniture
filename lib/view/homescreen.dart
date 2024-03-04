@@ -19,10 +19,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Future<List<Productmodel>>?productdetail;
+  Future<List<Productmodel>>? productdetail;
   String? token;
   @override
-  
+
   // ignore: override_on_non_overriding_member
   Future<List<Productmodel>> getProduct() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -45,7 +45,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: GridView.builder(
@@ -94,11 +93,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: InkWell(
                             onTap: () {
                               Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const CartScreen(yourhinttext: '',yourlabletext: '',),
-                            ),
-                          );
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => const CartScreen(
+                                    yourhinttext: '',
+                                    yourlabletext: '',
+                                  ),
+                                ),
+                              );
                             },
                             child: Icon(
                               Icons.shopping_bag,

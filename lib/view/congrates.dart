@@ -64,11 +64,11 @@ class _CongratesscreenState extends State<Congratesscreen> {
             GlobleButton(
               onTap: () {
                 Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const BottomNavigation(),
-                            ),
-                          );
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const BottomNavigation(),
+                  ),
+                );
               },
               button: 'Back to home',
             ),

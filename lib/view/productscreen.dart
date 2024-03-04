@@ -37,14 +37,16 @@ class _ProductScreenState extends State<ProductScreen> {
               child: Container(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10),
-                  child: InkWell(onTap: () {
-                    Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const BottomNavigation(),
-                            ),
-                          );
-                  },child: Icon(Icons.arrow_back_ios)),
+                  child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const BottomNavigation(),
+                          ),
+                        );
+                      },
+                      child: Icon(Icons.arrow_back_ios)),
                 ),
                 height: 40.h,
                 width: 40.w,
@@ -197,11 +199,13 @@ class _ProductScreenState extends State<ProductScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
-                'Minimal Stand is made of by natural wood. '
-                    'The design that is very simple and minimal. '
-                    'This is truly one of the best furnitures in any family for now. '
-                    'With 3 different colors, you can easily select '
-                    'the best match for your home. ', style: TextStyle(fontSize: 16),),
+              'Minimal Stand is made of by natural wood. '
+              'The design that is very simple and minimal. '
+              'This is truly one of the best furnitures in any family for now. '
+              'With 3 different colors, you can easily select '
+              'the best match for your home. ',
+              style: TextStyle(fontSize: 16),
+            ),
           )
         ],
       ),
