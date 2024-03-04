@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture/view/cartscreen.dart';
 
 class AppBarScreen extends StatefulWidget {
   const AppBarScreen({super.key});
@@ -31,7 +32,14 @@ class _AppBarScreenState extends State<AppBarScreen> {
               ],
 
             ),
-            Icon(Icons.shopping_cart_outlined, size: 30,),
+            InkWell(onTap: () {
+               Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const CartScreen(yourhinttext: '',yourlabletext: '',),
+                            ),
+                          );
+            },child: Icon(Icons.shopping_cart_outlined, size: 30,)),
           ],
         ),
       ),

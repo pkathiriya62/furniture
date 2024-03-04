@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture/common/Appimage.dart';
 import 'package:furniture/common/Apptext.dart';
 import 'package:furniture/model/showproductmodel.dart';
+import 'package:furniture/view/cartscreen.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -90,9 +91,19 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.only(right: 17),
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 80),
-                          child: Icon(
-                            Icons.shopping_bag,
-                            size: 30,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const CartScreen(yourhinttext: '',yourlabletext: '',),
+                            ),
+                          );
+                            },
+                            child: Icon(
+                              Icons.shopping_bag,
+                              size: 30,
+                            ),
                           ),
                         ),
                       ),

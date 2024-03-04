@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture/common/Appcolor.dart';
+import 'package:furniture/view/cartscreen.dart';
+import 'package:furniture/view/congrates.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 import '../Common/button.dart';
@@ -19,7 +21,14 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
       appBar: AppBar(
         title: Text('Check out'),
         titleSpacing: 100,
-        leading: Icon(Icons.arrow_back_ios),
+        leading: InkWell(onTap: () {
+          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const CartScreen(yourhinttext: '',yourlabletext: '',),
+                            ),
+                          );
+        },child: Icon(Icons.arrow_back_ios)),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -330,7 +339,14 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
               height: 50.h,
             ),
             GlobleButton(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const Congratesscreen(),
+                            ),
+                          );
+              },
               button: 'Submit order',
             ),
           ],

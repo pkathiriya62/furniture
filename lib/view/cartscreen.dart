@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:furniture/bottomnavbar.dart';
 import 'package:furniture/common/Appcolor.dart';
 import 'package:furniture/common/Appimage.dart';
+import 'package:furniture/view/checkoutscreen.dart';
+// import 'package:furniture/view/productscreen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../Common/button.dart';
@@ -27,7 +30,14 @@ class _CartScreenState extends State<CartScreen> {
       appBar: AppBar(
         title: const Text('My cart'),
         titleSpacing: 100,
-        leading: const Icon(Icons.arrow_back_ios),
+        leading:  InkWell(onTap: () {
+          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const BottomNavigation(),
+                            ),
+                          );
+        },child: Icon(Icons.arrow_back_ios)),
       ),
       body: Column(
         children: [
@@ -211,7 +221,14 @@ class _CartScreenState extends State<CartScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: GlobleButton(
-              onTap: () {},
+              onTap: () {
+                 Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const ChackOutScreen(),
+                            ),
+                          );
+              },
               button: 'Check out',
             ),
           ),

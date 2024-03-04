@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:furniture/bottomnavbar.dart';
+// import 'package:furniture/view/homescreen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProductScreen extends StatefulWidget {
@@ -35,7 +37,14 @@ class _ProductScreenState extends State<ProductScreen> {
               child: Container(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10),
-                  child: Icon(Icons.arrow_back_ios),
+                  child: InkWell(onTap: () {
+                    Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const BottomNavigation(),
+                            ),
+                          );
+                  },child: Icon(Icons.arrow_back_ios)),
                 ),
                 height: 40.h,
                 width: 40.w,

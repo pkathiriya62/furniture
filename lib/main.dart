@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:furniture/bottomnavbar.dart';
 // import 'package:furniture/bottomnavbar.dart';
-import 'package:furniture/view/congrates.dart';
+// import 'package:furniture/view/congrates.dart';
 // import 'package:furniture/view/checkoutscreen.dart';
 import 'package:furniture/view/loginscreen.dart';
 // import 'package:furniture/view/profilescreen.dart';
@@ -45,13 +46,14 @@ class _MyAppState extends State<MyApp> {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
+            //  ignore: unnecessary_null_comparison
+            // home: token != null
+            //     ? const Congratesscreen()
+            //     : const LogInScreen(),
             // ignore: unnecessary_null_comparison
             home: token != null
-                ? const Congratesscreen()
+                ? const BottomNavigation()
                 : const LogInScreen(),
-            // home: token != null
-            //     ? const BottomNavigation()
-            //     : const LogInScreen(),
           );
         });
   }
