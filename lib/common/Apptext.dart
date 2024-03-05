@@ -12,4 +12,11 @@ class AppText {
     "\$ 12.00",
     "\$ 12.00",
   ];
+  static List<String>  cartdetaildata= [
+    "01",
+    "01",
+    "01",
+    "01",
+    
+  ];
 }

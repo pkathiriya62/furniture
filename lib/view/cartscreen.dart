@@ -25,6 +25,8 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+  List<int> number = List.generate(4, (index) => 1).obs;
+  var a = 1.obs;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,8 +34,7 @@ class _CartScreenState extends State<CartScreen> {
         title: const Text('My cart'),
         titleSpacing: 100,
         leading: InkWell(
-            onTap: () =>Get.to(BottomNavigation()),
-            
+            onTap: () => Get.to(BottomNavigation()),
             child: Icon(Icons.arrow_back_ios)),
       ),
       body: Column(
@@ -101,16 +102,22 @@ class _CartScreenState extends State<CartScreen> {
                                             color: Colors.black12,
                                             borderRadius:
                                                 BorderRadius.circular(6)),
-                                        child: const Icon(Icons.add),
+                                        child: InkWell(
+                                            onTap: () {
+                                              number[index]++;
+                                            },
+                                            child: Icon(Icons.add)),
                                       ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
-                                      const Text(
-                                        '01',
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
+                                      Obx(
+                                        () => Text(
+                                          number[index].toString(),
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                         ),
                                       ),
                                       SizedBox(
@@ -123,7 +130,16 @@ class _CartScreenState extends State<CartScreen> {
                                             color: Colors.black12,
                                             borderRadius:
                                                 BorderRadius.circular(6)),
-                                        child: const Icon(Icons.remove),
+                                        child: InkWell(
+                                            onTap: () {
+                                              if(number[index]==1){
+
+                                              }
+                                              else{
+                                              number[index]--;
+                                              }
+                                            },
+                                            child: Icon(Icons.remove)),
                                       ),
                                     ],
                                   ),
@@ -218,7 +234,7 @@ class _CartScreenState extends State<CartScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: GlobleButton(
-              onTap: () =>Get.to(ChackOutScreen()),
+              onTap: () => Get.to(ChackOutScreen()),
               button: 'Check out',
             ),
           ),
