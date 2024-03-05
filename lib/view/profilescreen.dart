@@ -66,7 +66,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       log("delete successfully");
       prefs.remove("token");
       Navigator.pushAndRemoveUntil(context,
-          MaterialPageRoute(builder: (_) => LogInScreen()), (route) => false);
+          MaterialPageRoute(builder: (_) => const LogInScreen()), (route) => false);
     } else {
       throw Exception('failed to load employees');
     }
@@ -116,21 +116,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ],
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
+          child: const Padding(
+            padding: EdgeInsets.all(8.0),
             child: Icon(Icons.delete),
           ),
         ),
         actions: [
           InkWell(
-            onTap: () => Get.to(Editscreen()),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
+            onTap: () => Get.to(const Editscreen()),
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Icon(Icons.edit),
             ),
           ),
         ],
-        title: Center(child: Text('Profile')),
+        title: const Center(child: Text('Profile')),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -153,7 +153,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         children: [
                           Text(
                             snapshot.data?.name.toString() ?? "",
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.w500,
                               color: Colors.black,
@@ -161,7 +161,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           Text(
                             snapshot.data?.email.toString() ?? "",
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w300,
                               color: Colors.black,
@@ -211,7 +211,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                               ],
                             ),
-                            Icon(Icons.arrow_forward_ios),
+                            const Icon(Icons.arrow_forward_ios),
                           ],
                         ),
                       ),
@@ -221,7 +221,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         borderRadius: BorderRadius.circular(8),
                         color: Colors.white,
                         boxShadow: [
-                          BoxShadow(
+                          const BoxShadow(
                             color: Colors.black12,
                             blurRadius: 20.0,
                           ),
@@ -235,16 +235,5 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
     );
   }
-  // signInGooglr() async {
-  //   GoogleSignInAccount? googleuser = await GoogleSignIn().signIn();
-  //   GoogleSignInAuthentication? googleauth = await googleuser?.authentication;
-  //   AuthCredential credential = GoogleAuthProvider.credential(
-  //     accessToken: googleauth?.accessToken,
-  //     idToken: googleauth?.idToken,
-  //   );
-  //
-  //   UserCredential userCredential =
-  //   await FirebaseAuth.instance.signInWithCredential(credential);
-  //   print(userCredential.user?.displayName);
-  // }
+
 }

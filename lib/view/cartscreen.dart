@@ -5,9 +5,7 @@ import 'package:furniture/common/Appcolor.dart';
 import 'package:furniture/common/Appimage.dart';
 import 'package:furniture/view/checkoutscreen.dart';
 import 'package:get/get.dart';
-// import 'package:furniture/view/productscreen.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../Common/button.dart';
 
 class CartScreen extends StatefulWidget {
@@ -34,8 +32,8 @@ class _CartScreenState extends State<CartScreen> {
         title: const Text('My cart'),
         titleSpacing: 100,
         leading: InkWell(
-            onTap: () => Get.to(BottomNavigation()),
-            child: Icon(Icons.arrow_back_ios)),
+            onTap: () => Get.to(const BottomNavigation()),
+            child: const Icon(Icons.arrow_back_ios)),
       ),
       body: Column(
         children: [
@@ -106,7 +104,7 @@ class _CartScreenState extends State<CartScreen> {
                                             onTap: () {
                                               number[index]++;
                                             },
-                                            child: Icon(Icons.add)),
+                                            child: const Icon(Icons.add)),
                                       ),
                                       SizedBox(
                                         width: 10.w,
@@ -114,7 +112,7 @@ class _CartScreenState extends State<CartScreen> {
                                       Obx(
                                         () => Text(
                                           number[index].toString(),
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.w500,
                                           ),
@@ -132,14 +130,12 @@ class _CartScreenState extends State<CartScreen> {
                                                 BorderRadius.circular(6)),
                                         child: InkWell(
                                             onTap: () {
-                                              if(number[index]==1){
-
-                                              }
-                                              else{
-                                              number[index]--;
+                                              if (number[index] == 1) {
+                                              } else {
+                                                number[index]--;
                                               }
                                             },
-                                            child: Icon(Icons.remove)),
+                                            child: const Icon(Icons.remove)),
                                       ),
                                     ],
                                   ),
@@ -234,7 +230,7 @@ class _CartScreenState extends State<CartScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: GlobleButton(
-              onTap: () => Get.to(ChackOutScreen()),
+              onTap: () => Get.to(const ChackOutScreen()),
               button: 'Check out',
             ),
           ),

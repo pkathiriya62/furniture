@@ -18,11 +18,11 @@ class _AppBarScreenState extends State<AppBarScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Icon(
+            const Icon(
               Icons.search,
               size: 30,
             ),
-            Column(
+            const Column(
               children: [
                 Text(
                   'MAKE HOME',
@@ -30,7 +30,7 @@ class _AppBarScreenState extends State<AppBarScreen> {
                     fontSize: 16,
                   ),
                 ),
-                Text(
+                 Text(
                   'BEAUTIFUL',
                   style: TextStyle(
                     fontSize: 22,
@@ -51,7 +51,7 @@ class _AppBarScreenState extends State<AppBarScreen> {
                     ),
                   );
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.shopping_cart_outlined,
                   size: 30,
                 )),

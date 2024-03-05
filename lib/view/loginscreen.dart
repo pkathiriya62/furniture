@@ -6,8 +6,6 @@ import 'package:furniture/bottomnavbar.dart';
 import 'package:furniture/common/Appcolor.dart';
 import 'package:furniture/common/Appimage.dart';
 import 'package:furniture/common/newtextformfield.dart';
-// import 'package:furniture/view/editscreen.dart';
-// import 'package:furniture/view/homescreen.dart';
 import 'package:furniture/view/signupscreen.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

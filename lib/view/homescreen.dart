@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture/common/Appimage.dart';
@@ -50,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: GridView.builder(
           itemCount: 4,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             mainAxisSpacing: 0,
             mainAxisExtent: 300,
             crossAxisCount: 2,
@@ -76,10 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                // decoration: BoxDecoration(
-                //   border: Border.all(color: Colors.black26),
-                //   borderRadius: BorderRadius.circular(10),
-                // ),
+               
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -92,8 +88,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 80),
                           child: InkWell(
-                            onTap: () => Get.to(CartScreen(yourhinttext: '',yourlabletext: '',)),
-                            child: Icon(
+                            onTap: () => Get.to(const CartScreen(
+                              yourhinttext: '',
+                              yourlabletext: '',
+                            )),
+                            child: const Icon(
                               Icons.shopping_bag,
                               size: 30,
                             ),

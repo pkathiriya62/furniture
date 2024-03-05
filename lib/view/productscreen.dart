@@ -39,7 +39,7 @@ class _ProductScreenState extends State<ProductScreen> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10),
                   child: InkWell(
-                      onTap: ()=> Get.to(BottomNavigation()),
+                      onTap: () => Get.to(BottomNavigation()),
                       child: Icon(Icons.arrow_back_ios)),
                 ),
                 height: 40.h,

@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture/bottomnavbar.dart';
 import 'package:furniture/common/Appcolor.dart';
-// import 'package:furniture/view/cartscreen.dart';
 import 'package:furniture/view/congrates.dart';
 import 'package:get/get.dart';
-// import 'package:google_fonts/google_fonts.dart';
-
 import '../Common/button.dart';
 
 class ChackOutScreen extends StatefulWidget {
@@ -21,11 +18,11 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Check out'),
+        title: const Text('Check out'),
         titleSpacing: 100,
         leading: InkWell(
-            onTap: () => Get.to(BottomNavigation()),
-            child: Icon(Icons.arrow_back_ios)),
+            onTap: () => Get.to(const BottomNavigation()),
+            child: const Icon(Icons.arrow_back_ios)),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -44,7 +41,7 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    Icon(Icons.edit),
+                    const Icon(Icons.edit),
                   ],
                 ),
                 SizedBox(
@@ -55,7 +52,7 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
                     borderRadius: BorderRadius.circular(8),
                     color: Colors.white,
                     boxShadow: [
-                      BoxShadow(
+                      const BoxShadow(
                         color: Colors.black12,
                         blurRadius: 20.0,
                       ),
@@ -66,7 +63,7 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Bruno Fernandes',
                           style: TextStyle(
                             color: Colors.black,
@@ -114,7 +111,7 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    Icon(Icons.edit),
+                    const Icon(Icons.edit),
                   ],
                 ),
                 SizedBox(
@@ -125,7 +122,7 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
                     borderRadius: BorderRadius.circular(8),
                     color: Colors.white,
                     boxShadow: [
-                      BoxShadow(
+                      const BoxShadow(
                         color: Colors.black12,
                         blurRadius: 20.0,
                       ),
@@ -145,7 +142,7 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
                               borderRadius: BorderRadius.circular(8),
                               color: Colors.white,
                               boxShadow: [
-                                BoxShadow(
+                                const BoxShadow(
                                   color: Colors.black12,
                                   blurRadius: 20.0,
                                 ),
@@ -160,7 +157,7 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
                         SizedBox(
                           width: 10.w,
                         ),
-                        Text(
+                        const Text(
                           '**** **** **** 3947',
                           style: TextStyle(
                             color: Colors.black,
@@ -190,7 +187,7 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    Icon(Icons.edit),
+                    const Icon(Icons.edit),
                   ],
                 ),
                 SizedBox(
@@ -201,7 +198,7 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
                     borderRadius: BorderRadius.circular(8),
                     color: Colors.white,
                     boxShadow: [
-                      BoxShadow(
+                      const BoxShadow(
                         color: Colors.black12,
                         blurRadius: 20.0,
                       ),
@@ -222,7 +219,7 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
                         SizedBox(
                           width: 10.w,
                         ),
-                        Text(
+                        const Text(
                           'Fast (2-3days)',
                           style: TextStyle(
                             color: Colors.black,
@@ -246,7 +243,7 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
                     borderRadius: BorderRadius.circular(8),
                     color: Colors.white,
                     boxShadow: [
-                      BoxShadow(
+                      const BoxShadow(
                         color: Colors.black12,
                         blurRadius: 20.0,
                       ),
@@ -268,7 +265,7 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
-                            Text(
+                            const Text(
                               '\$ 95.00',
                               style: TextStyle(
                                 color: Colors.black,
@@ -292,7 +289,7 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
-                            Text(
+                            const Text(
                               '\$ 5.00',
                               style: TextStyle(
                                 color: Colors.black,
@@ -316,7 +313,7 @@ class _ChackOutScreenState extends State<ChackOutScreen> {
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
-                            Text(
+                            const Text(
                               '\$ 100.00',
                               style: TextStyle(
                                 color: Colors.black,

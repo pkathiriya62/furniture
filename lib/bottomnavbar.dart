@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:furniture/common/Appcolor.dart';
 import 'package:furniture/tabbarscreen.dart';
 import 'package:furniture/view/favouritescreen.dart';
-// import 'package:furniture/view/homescreen.dart';
 import 'package:furniture/view/profilescreen.dart';
 
 class BottomNavigation extends StatefulWidget {
