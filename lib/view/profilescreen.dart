@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:furniture/model/getprofilemodel.dart';
 import 'package:furniture/view/editscreen.dart';
 import 'package:furniture/view/loginscreen.dart';
+import 'package:furniture/view/myorder.dart';
+import 'package:furniture/view/myreview.dart';
+import 'package:furniture/view/paymentmethod.dart';
+import 'package:furniture/view/setting.dart';
+import 'package:furniture/view/shippingaddress.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -181,51 +186,66 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 9),
-                    child: Container(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  AppText.profiletext[index],
-                                  style: TextStyle(
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                    fontFamily: GoogleFonts.poppins.toString(),
+                    child: InkWell(
+                      onTap: () {
+                          index == 0
+                              ? Get.to(OrderScreen())
+                              : index == 1
+                                  ? Get.to(ShippingScreen())
+                                  : index == 2
+                                      ? Get.to(Paymentmethod())
+                                      : index == 3
+                                          ? Get.to(Myreview())
+                                          : index == 4
+                                              ? Get.to(Settingscreen())
+                                              : null;
+                        },
+                      child: Container(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    AppText.profiletext[index],
+                                    style: TextStyle(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                      fontFamily: GoogleFonts.poppins.toString(),
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  AppText.profilesubtext[index],
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w300,
-                                    color: Colors.black,
-                                    fontFamily: GoogleFonts.poppins.toString(),
+                                  Text(
+                                    AppText.profilesubtext[index],
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w300,
+                                      color: Colors.black,
+                                      fontFamily: GoogleFonts.poppins.toString(),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
+                              const Icon(Icons.arrow_forward_ios),
+                            ],
+                          ),
+                        ),
+                        height: 80.h,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.white,
+                          boxShadow: [
+                            const BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 20.0,
                             ),
-                            const Icon(Icons.arrow_forward_ios),
                           ],
                         ),
-                      ),
-                      height: 80.h,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Colors.white,
-                        boxShadow: [
-                          const BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 20.0,
-                          ),
-                        ],
                       ),
                     ),
                   );
