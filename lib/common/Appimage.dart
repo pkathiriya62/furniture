@@ -22,4 +22,13 @@ class AppImage {
     "assets/image/cart2(3).png",
     "assets/image/cart2(4).png",
   ];
+  static List<String> notificationscrnimg = [
+
+    "assets/image/not1.png",
+    "assets/image/not2.png",
+    "assets/image/not3.png",
+    "assets/image/not4.png",
+    "assets/image/not5.png",
+
+  ];
 }

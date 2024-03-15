@@ -19,4 +19,24 @@ class AppText {
     "01",
     
   ];
+  static List<String> notificatioinscreen = [
+    "Your order #123456789 has been\nshipped successfully",
+    "Your order #123456789 has been\nshipped",
+    "Your order #123456789 has been\nconfirmed",
+    "Discover hot sale furnitures this\nweek.",
+    "Your order #123456789 has been\ncanceled",
+  ];
+
+  static List<String> notificationtext = [
+    "New",
+    "New",
+    "Hot",
+    "Hot",
+    " ",
+  ];
+
+  static String ordernum='Order No238562312';
+  static String orderdate='20/03/2020';
+  static String orderqty='Quantity: 03';
+  static String orderprice='Total Amount: \$150';
 }

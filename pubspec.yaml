@@ -40,6 +40,7 @@ dependencies:
   http: 
   shared_preferences: 
   get: ^4.6.6
+  
 
 dev_dependencies:
   flutter_test:
