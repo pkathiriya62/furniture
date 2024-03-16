@@ -193,7 +193,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               : index == 1
                                   ? Get.to(ShippingScreen())
                                   : index == 2
-                                      ? Get.to(Paymentmethod())
+                                      ? Get.to(PaymentScreen())
                                       : index == 3
                                           ? Get.to(Myreview())
                                           : index == 4

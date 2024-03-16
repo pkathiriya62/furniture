@@ -166,7 +166,7 @@ class _ShippingScreenState extends State<ShippingScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.white,
         onPressed: () {
-          Get.to(Addshipping());
+          Get.to(MySpipiingScreen());
         },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100),
