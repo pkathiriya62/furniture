@@ -2,13 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:furniture/bottomnavbar.dart';
-// import 'package:furniture/bottomnavbar.dart';
 import 'package:furniture/view/loginscreen.dart';
-// import 'package:furniture/view/myorder.dart';
-// import 'package:furniture/bottomnavbar.dart';
-// import 'package:furniture/view/loginscreen.dart';
-// import 'package:furniture/view/myorder.dart';
-// import 'package:furniture/view/myorder.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -53,7 +47,7 @@ class _MyAppState extends State<MyApp> {
             // home: token != null
             //     ? const OrderScreen()
             //     : const LogInScreen(),
-            
+
             home:
                 // ignore: unnecessary_null_comparison
                 token != null ? const BottomNavigation() : const LogInScreen(),
