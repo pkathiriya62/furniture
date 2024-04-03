@@ -50,7 +50,7 @@ class _EditscreenState extends State<Editscreen> {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           NewTextFormfield(
@@ -58,8 +58,8 @@ class _EditscreenState extends State<Editscreen> {
               yourlabletext: 'update',
               controller: nameControll),
           ElevatedButton(
-              onPressed: () => Get.to(BottomNavigation()),
-              child: Text('update'))
+              onPressed: () => Get.to(const BottomNavigation()),
+              child: const Text('update')),
         ],
       ),
     );
